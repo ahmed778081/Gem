@@ -1,0 +1,59 @@
+/* ... (CSS Anda yang sudah ada sebelumnya) ... */
+
+#controls {
+    text-align: center;
+    margin-top: 30px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#controls div { 
+    display: flex; 
+    justify-content: center; 
+    margin: 5px 0; 
+}
+
+.control-button {
+    background-color: #4CAF50; 
+    border: none;
+    color: white;
+    padding: 15px 25px; 
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; 
+    margin: 5px; 
+    cursor: pointer;
+    border-radius: 8px; 
+    min-width: 70px; 
+    min-height: 60px; 
+    line-height: 1; 
+    touch-action: manipulation; 
+    user-select: none; 
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+}
+
+.control-button:hover {
+    background-color: #45a049; 
+}
+
+.control-button:active {
+    background-color: #3e8e41; 
+    transform: translateY(1px); 
+}
+
+/* >>> PENAMBAHAN: Style khusus untuk tombol Pause/Resume jika diperlukan <<< */
+#btnPauseResume {
+    margin-top: 10px; /* Memberi jarak dari tombol arah di atasnya */
+    background-color: #ff9800; /* Warna oranye untuk membedakan (opsional) */
+}
+
+#btnPauseResume:hover {
+    background-color: #f57c00; /* Oranye lebih gelap saat hover */
+}
+
+#btnPauseResume:active {
+    background-color: #e65100; /* Oranye lebih gelap saat ditekan */
+}
