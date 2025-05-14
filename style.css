@@ -1,59 +1,137 @@
-/* ... (CSS Anda yang sudah ada sebelumnya) ... */
+/* ... (CSS Anda yang sudah ada sebelumnya bisa tetap di atas sini) ... */
 
-#controls {
-    text-align: center;
-    margin-top: 30px; 
+/* Styling untuk Kontainer Utama Pre-Game (Tema & Tombol Play) */
+#preGameControls {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* Memusatkan item di dalamnya (selector tema & tombol play) */
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-#controls div { 
+.theme-selector-container {
+    margin-bottom: 15px; /* Jarak antara pemilih tema dan tombol play */
+}
+
+#preGameControls label {
+    margin-right: 8px;
+    font-size: 1em;
+}
+
+#preGameControls select {
+    padding: 8px;
+    font-size: 0.9em;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#btnPlay {
+    /* Gaya spesifik untuk tombol play, bisa disamakan dengan .control-button atau dibuat beda */
+    background-color: #4CAF50; /* Menggunakan warna hijau standar seperti tombol lain */
+    border: none;
+    color: white;
+    padding: 12px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.1em; /* Sedikit lebih besar */
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+#btnPlay:hover {
+    background-color: #45a049;
+}
+#btnPlay:active {
+    background-color: #3e8e41;
+    transform: translateY(1px);
+}
+
+
+/* Styling untuk Kontainer Utama Kontrol Game (Panah, Pause, dll.) */
+#gameControls {
+    display: flex;
+    flex-direction: column; /* Menyusun grup tombol arah dan tombol lainnya secara vertikal */
+    align-items: center;  /* Memusatkan grup-grup tersebut secara horizontal */
+    margin-top: 20px;     /* Jarak dari canvas atau elemen di atasnya */
+    /* JavaScript akan mengatur display: block/none untuk ini */
+}
+
+/* Kontainer untuk tombol-tombol arah */
+#arrowControls {
+    display: flex;
+    flex-direction: column; /* Tombol atas, baris kiri-kanan, tombol bawah tersusun vertikal */
+    align-items: center;  /* Memusatkan masing-masing baris/tombol di dalamnya */
+    margin-bottom: 10px;  /* Jarak ke tombol Pause/Reset di bawahnya */
+}
+
+/* Div yang membungkus tombol Kiri dan Kanan secara spesifik */
+#arrowControls > div {
+    display: flex;
+    justify-content: center; /* Memusatkan tombol Kiri dan Kanan dalam baris mereka */
+}
+
+/* Gaya Umum untuk Semua Tombol Kontrol Game */
+.control-button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 20px; /* Anda bisa sesuaikan padding ini */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block; /* Atau biarkan default jika di dalam flex item */
+    font-size: 20px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 8px;
+    min-width: 70px;
+    min-height: 60px;
+    line-height: 1; /* Coba sesuaikan ini untuk vertical alignment teks di tombol */
+    box-sizing: border-box; /* Penting agar padding tidak menambah ukuran total diluar min-width/height */
+    touch-action: manipulation;
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.control-button:hover {
+    background-color: #45a049;
+}
+
+.control-button:active {
+    background-color: #3e8e41;
+    transform: translateY(1px);
+}
+
+/* Gaya Khusus untuk Tombol Pause/Resume (jika ingin dibedakan) */
+#btnPauseResume {
+    /* margin-top: 10px; /* Mungkin tidak perlu jika #arrowControls sudah punya margin-bottom */
+    background-color: #ff9800; /* Warna oranye untuk membedakan */
+}
+
+#btnPauseResume:hover {
+    background-color: #f57c00;
+}
+
+#btnPauseResume:active {
+    background-color: #e65100;
+}
+
+/* Gaya Khusus untuk Tombol Reset High Score (jika ingin dibedakan) */
+#btnResetHighScore {
+    background-color: #2196F3; /* Contoh: Biru */
+}
+#btnResetHighScore:hover {
+    background-color: #1976D2;
+}
+#btnResetHighScore:active {
+    background-color: #1565C0;
+}
+
+/* Hilangkan gaya #controls div lama Anda jika sudah tidak relevan atau bentrok */
+/* #controls div { 
     display: flex; 
     justify-content: center; 
     margin: 5px 0; 
 }
-
-.control-button {
-    background-color: #4CAF50; 
-    border: none;
-    color: white;
-    padding: 15px 25px; 
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 20px; 
-    margin: 5px; 
-    cursor: pointer;
-    border-radius: 8px; 
-    min-width: 70px; 
-    min-height: 60px; 
-    line-height: 1; 
-    touch-action: manipulation; 
-    user-select: none; 
-    -webkit-user-select: none; 
-    -ms-user-select: none; 
-}
-
-.control-button:hover {
-    background-color: #45a049; 
-}
-
-.control-button:active {
-    background-color: #3e8e41; 
-    transform: translateY(1px); 
-}
-
-/* >>> PENAMBAHAN: Style khusus untuk tombol Pause/Resume jika diperlukan <<< */
-#btnPauseResume {
-    margin-top: 10px; /* Memberi jarak dari tombol arah di atasnya */
-    background-color: #ff9800; /* Warna oranye untuk membedakan (opsional) */
-}
-
-#btnPauseResume:hover {
-    background-color: #f57c00; /* Oranye lebih gelap saat hover */
-}
-
-#btnPauseResume:active {
-    background-color: #e65100; /* Oranye lebih gelap saat ditekan */
-}
+*/
